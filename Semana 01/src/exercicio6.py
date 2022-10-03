@@ -29,13 +29,12 @@ def main():
     
     print("\n---------- 6.(b).I---------- \n")
     problemaB = BiscectionMethod(-1, 0, 0.01, funcao_b)
-    print("Raiz a partir do objeto eh: {}".format(problemaA.get_raiz()))
+    print("Raiz a partir do objeto eh: {}".format(problemaB.get_raiz()))
     print(problemaB.tabela)
     
     print("\n---------- 6.(b).II---------- \n")
-    problemaB.ponto_a = 0
-    problemaB.ponto_b = 1
-    print("Raiz a partir do objeto eh: {}".format(problemaA.get_raiz()))
+    problemaB2 = BiscectionMethod(0, 1, 0.01, funcao_b)
+    print("Raiz a partir do objeto eh: {}".format(problemaB2.get_raiz()))
     print(problemaB.tabela)
     
     print("\n---------- 6.(c)---------- \n")
