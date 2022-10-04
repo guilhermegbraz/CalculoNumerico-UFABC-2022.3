@@ -15,8 +15,7 @@ class BiscectionMethod:
     def get_raiz(self) :
         
         raiz_encontrada = False
-        contador = 0
-        
+
         while(not raiz_encontrada) :
             
             x = np.array([self.ponto_a, self.ponto_b]).mean()
@@ -33,9 +32,6 @@ class BiscectionMethod:
                     self.ponto_b = x
                 else:
                     self.ponto_a = x
-                    
-            contador += 1
-            
         return raiz
     
     @property
