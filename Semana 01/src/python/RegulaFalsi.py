@@ -1,11 +1,10 @@
 import numpy as np
-import pandas as pd
 from Methods import Methods
 
 class RegulaFalsi(Methods):
     
-    def __init__(self, ponto_a : float, ponto_b : float, precisao : float, funcao, x0 : float, x1 : float) -> None:
-        super().__init__(ponto_a, ponto_b, precisao, funcao)
+    def __init__(self,precisao : float, funcao, x0 : float, x1 : float) -> None:
+        super().__init__( precisao, funcao)
         self.x0 = x0
         self.x1 = x1
         
@@ -20,7 +19,7 @@ class RegulaFalsi(Methods):
             incerteza1 = abs((xk - self.x1)/np.array([1, xk]).max())
             incerteza0 = abs((xk - self.x0)/np.array([1, xk]).max())
             
-            linha = (self.x0, self.x1, self.funcao(self.ponto_a), self.funcao(self.ponto_b), xk, self.funcao(xk), incerteza0)
+            linha = (self.x0, self.x1, self.funcao(self.x0), self.funcao(self.x1), xk, self.funcao(xk), incerteza0)
             self.relacao.append(linha)
             
             if(incerteza1 < self.precisao or incerteza0 < self.precisao):
@@ -32,4 +31,8 @@ class RegulaFalsi(Methods):
                 else:
                     self.x0 = xk
         return raiz
+    
+    def get_tabela(self):
+        cabecalho = ["x_k-1", "x_k", "f(x_k-1)", "f(x_k)", "x_k+1", "f(x_k+1)", "Erro relativo"]
+        return super().get_tabela(cabecalho)
         
