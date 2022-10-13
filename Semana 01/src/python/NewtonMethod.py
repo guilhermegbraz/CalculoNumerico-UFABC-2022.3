@@ -30,6 +30,4 @@ class NewtonMethod (Methods):
         cabecalho = ["x_k","f(x_k)", "f'(x_k)","x_k+1 = x_k - f(x_k)/f'(x_k)", "Erro relativo"]
         return super().get_tabela(cabecalho)
     
-    def limpar_resultados(self) :
-        self.relacao = list()
-        self._tabela = None
+    

@@ -13,3 +13,7 @@ class Methods:
     def get_tabela(self, cabecalho : list):
         self._tabela = pd.DataFrame(self.relacao, columns=cabecalho)
         return self._tabela
+    
+    def limpar_resultados(self) :
+        self.relacao = list()
+        self._tabela = None
