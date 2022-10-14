@@ -11,10 +11,12 @@ class SecantesMethod(Methods) :
         parar = False
         while(not parar):
             xk = (self.x0 * self.funcao(self.x1) - self.x1 * self.funcao(self.x0))/(self.funcao(self.x1) - self.funcao(self.x0))
+            
             incerteza1 = abs((xk - self.x1)/np.array([1, xk]).max())
             incerteza0 = abs((xk - self.x0)/np.array([1, xk]).max())
             
-            linha = (self.x0, self.x1, self.funcao(self.x0), self.funcao(self.x1), xk, self.funcao(xk), incerteza0)
+            erro_relativo = np.array([incerteza0, incerteza1]).min()
+            linha = (self.x0, self.x1, self.funcao(self.x0), self.funcao(self.x1), xk, self.funcao(xk), erro_relativo)
             self.relacao.append(linha)
             
             if(incerteza1 < self.precisao or incerteza0 < self.precisao):
