@@ -9,7 +9,8 @@ class RegulaFalsi(SecantesMethod):
         if(self.funcao(x1) * self.funcao(x0) > 0):
             raise Exception("Escolha os chutes iniciais (x0 e x1) de tal modo que f(x0) * f(x1) < 0")
     
-
+        """Usa o método get_raiz() da classe SecantesMethod pois a lógica da implementação é a mesma
+        """    
     def get_raiz(self):
         
         return super().get_raiz()
@@ -19,6 +20,3 @@ class RegulaFalsi(SecantesMethod):
             self.x1 = xk
         else:
             self.x0 = xk
-    
-    
-        

@@ -11,7 +11,7 @@ class SecantesMethod(Methods) :
         parar = False
         while(not parar):
             xk = (self.x0 * self.funcao(self.x1) - self.x1 * self.funcao(self.x0))/(self.funcao(self.x1) - self.funcao(self.x0))
-            
+
             incerteza1 = abs((xk - self.x1)/np.array([1, xk]).max())
             incerteza0 = abs((xk - self.x0)/np.array([1, xk]).max())
             
