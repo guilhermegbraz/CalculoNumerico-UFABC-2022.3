@@ -1,7 +1,9 @@
+from IPython.core.display_functions import display
 from SecantesMethod import SecantesMethod
 from RegulaFalsi import RegulaFalsi
 from NewtonMethod import NewtonMethod
 import math
+import pandas as pd
 
 def func (x : float) :
     return pow(x, 2) - 7
@@ -67,7 +69,8 @@ def main():
     prob3Sec = SecantesMethod(0.01, func3, -1.5, -1.32)
     result3Sec = prob3Sec.get_raiz()
     print("\nA raiz aproximada eh {}\n\n".format(result3Sec), prob3Sec.get_tabela())
-    
+
+
     
     
 main()
